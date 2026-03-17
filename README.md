@@ -251,4 +251,4 @@ This project is built for educational and portfolio purposes.
 
 ---
 
-**Built with ❤️ by [Priyanshu](https://github.com/Priyanshu-Builds)**
+**Built by [Priyanshu](https://github.com/Priyanshu-Builds)**
