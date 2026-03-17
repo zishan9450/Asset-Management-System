@@ -2,6 +2,15 @@
 
 A full-stack **Enterprise Asset Management** web application with a premium dark SaaS dashboard UI. Built with **React + Vite** (frontend) and **Flask + MySQL** (backend), featuring role-based access control, real-time search, glassmorphism design, and comprehensive asset lifecycle management.
 
+### 🌐 Live Demo
+
+| Service | URL |
+|---|---|
+| **Frontend** | [asset-management-system-wine.vercel.app](https://asset-management-system-wine.vercel.app/) |
+| **Backend API** | [asset-management-system-qqk0.onrender.com](https://asset-management-system-qqk0.onrender.com/) |
+
+> **Demo Login:** `admin@company.com` / `admin123`
+
 ---
 
 ## ✨ Features
@@ -97,7 +106,7 @@ Asset Management System/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/asset-management-system.git
+git clone https://github.com/Priyanshu-Builds/asset-management-system.git
 cd asset-management-system
 ```
 
@@ -239,3 +248,7 @@ The app will run at `http://localhost:5173`.
 ## 📄 License
 
 This project is built for educational and portfolio purposes.
+
+---
+
+**Built with ❤️ by [Priyanshu](https://github.com/Priyanshu-Builds)**
