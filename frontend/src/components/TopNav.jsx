@@ -74,7 +74,6 @@ export default function TopNav() {
   const createItems = isAdminOrIT
     ? [
         { label: 'New Asset', icon: Box, path: '/assets?action=create', color: '#8b5cf6' },
-        { label: 'Report Issue', icon: AlertCircle, path: '/issues?action=create', color: '#f59e0b' },
         { label: 'Schedule Maintenance', icon: Wrench, path: '/maintenance?action=create', color: '#06b6d4' },
       ]
     : [
