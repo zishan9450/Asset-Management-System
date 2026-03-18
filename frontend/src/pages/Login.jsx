@@ -41,7 +41,7 @@ export default function Login() {
               <Shield style={{ width: 24, height: 24, color: '#fff' }} />
             </div>
             <h1 style={{ fontSize: 22, fontWeight: 700, color: '#fff', letterSpacing: '-0.02em' }}>Welcome Back</h1>
-            <p style={{ fontSize: 13, color: '#6b6b8a', marginTop: 6 }}>Sign in to AssetHub Management Suite</p>
+            <p style={{ fontSize: 13, color: '#6b6b8a', marginTop: 6 }}>Sign in to AssetVault Management Suite</p>
           </div>
 
           {error && (

@@ -40,7 +40,7 @@ app.register_blueprint(notifications_bp)
 
 @app.route('/')
 def index():
-    return {'message': 'Asset Management System API', 'status': 'running'}
+    return {'message': 'AssetVault API', 'status': 'running'}
 
 
 # Create tables on startup (works with both flask run and gunicorn)

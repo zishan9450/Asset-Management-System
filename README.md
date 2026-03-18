@@ -1,4 +1,4 @@
-# 🏢 AssetHub — Enterprise Asset Management System
+# 🏢 AssetVault — Enterprise Asset Management System
 
 <div align="center">
 
@@ -37,7 +37,7 @@
 
 ## About
 
-AssetHub is an enterprise-grade asset management system designed for organizations to track hardware, software, furniture, and vehicles throughout their lifecycle. It provides different dashboards and permissions based on user roles — administrators see system-wide analytics and manage resources, while employees view only their assigned assets and report issues.
+AssetVault is an enterprise-grade asset management system designed for organizations to track hardware, software, furniture, and vehicles throughout their lifecycle. It provides different dashboards and permissions based on user roles — administrators see system-wide analytics and manage resources, while employees view only their assigned assets and report issues.
 
 The application features a premium dark-themed SaaS-style interface with glassmorphism cards, smooth animations, and responsive design built entirely with vanilla CSS.
 

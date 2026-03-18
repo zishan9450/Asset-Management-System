@@ -47,7 +47,7 @@ export default function Sidebar() {
             <Shield style={{ width: 18, height: 18, color: '#fff' }} />
           </div>
           <div>
-            <div style={{ fontSize: 16, fontWeight: 700, color: '#fff', letterSpacing: '-0.02em' }}>AssetHub</div>
+            <div style={{ fontSize: 16, fontWeight: 700, color: '#fff', letterSpacing: '-0.02em' }}>AssetVault</div>
             <div style={{ fontSize: 11, color: '#6b6b8a', fontWeight: 500 }}>Management Suite</div>
           </div>
         </div>

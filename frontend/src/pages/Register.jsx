@@ -85,7 +85,7 @@ export default function Register() {
               <Shield style={{ width: 24, height: 24, color: '#fff' }} />
             </div>
             <h1 style={{ fontSize: 22, fontWeight: 700, color: '#fff', letterSpacing: '-0.02em' }}>Create Account</h1>
-            <p style={{ fontSize: 13, color: '#6b6b8a', marginTop: 6 }}>Register for AssetHub Management Suite</p>
+            <p style={{ fontSize: 13, color: '#6b6b8a', marginTop: 6 }}>Register for AssetVault Management Suite</p>
           </div>
 
           {error && (
