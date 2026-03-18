@@ -1,250 +1,427 @@
 # 🏢 AssetHub — Enterprise Asset Management System
 
-A full-stack **Enterprise Asset Management** web application with a premium dark SaaS dashboard UI. Built with **React + Vite** (frontend) and **Flask + MySQL** (backend), featuring role-based access control, real-time search, glassmorphism design, and comprehensive asset lifecycle management.
+<div align="center">
 
-### 🌐 Live Demo
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-3.0-000000?logo=flask&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?logo=mysql&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?logo=vite&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+**A full-stack enterprise asset management platform with role-based access control, real-time analytics, and a premium dark glassmorphism UI.**
+
+[Live Demo](https://asset-management-system-wine.vercel.app/) · [API Endpoint](https://asset-management-system-qqk0.onrender.com/) · [Report Bug](https://github.com/Priyanshu-Builds/asset-management-system/issues)
+
+</div>
+
+---
+
+## 📋 Table of Contents
+
+- [About](#about)
+- [Live Demo](#-live-demo)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Architecture](#-architecture)
+- [Database Schema](#-database-schema)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [Demo Credentials](#-demo-credentials)
+- [API Reference](#-api-reference)
+- [Role-Based Access Matrix](#-role-based-access-matrix)
+- [Deployment](#-deployment)
+- [Screenshots](#-screenshots)
+- [License](#-license)
+
+---
+
+## About
+
+AssetHub is an enterprise-grade asset management system designed for organizations to track hardware, software, furniture, and vehicles throughout their lifecycle. It provides different dashboards and permissions based on user roles — administrators see system-wide analytics and manage resources, while employees view only their assigned assets and report issues.
+
+The application features a premium dark-themed SaaS-style interface with glassmorphism cards, smooth animations, and responsive design built entirely with vanilla CSS.
+
+---
+
+## 🌐 Live Demo
 
 | Service | URL |
 |---|---|
-| **Frontend** | [asset-management-system-wine.vercel.app](https://asset-management-system-wine.vercel.app/) |
-| **Backend API** | [asset-management-system-qqk0.onrender.com](https://asset-management-system-qqk0.onrender.com/) |
+| **Frontend (Vercel)** | [asset-management-system-wine.vercel.app](https://asset-management-system-wine.vercel.app/) |
+| **Backend API (Render)** | [asset-management-system-qqk0.onrender.com](https://asset-management-system-qqk0.onrender.com/) |
+| **Database** | Railway MySQL |
 
-> **Demo Login:** `admin@company.com` / `admin123`
+> **Note:** The Render free tier spins down after 15 minutes of inactivity. The first request after a cold start may take ~30 seconds.
 
 ---
 
 ## ✨ Features
 
-| Feature | Description |
-|---|---|
-| **Role-Based Dashboard** | Admin/IT Manager see system-wide analytics; Employees see only their own assets & issues |
-| **Asset Management** | Full CRUD with categories, status tracking, serial numbers, warranty dates |
-| **Assignment Tracking** | Assign/return assets to employees with history |
-| **Issue Reporting** | Employees report issues, managers update status (open → in progress → resolved → closed) |
-| **Maintenance Records** | Schedule and track asset maintenance with cost tracking |
-| **User Management** | Admin can manage users, assign roles, activate/deactivate accounts |
-| **Live Global Search** | Real-time search across assets, users, and issues with categorized results |
-| **Role-Based Notifications** | Dynamic notifications based on user role from real system data |
-| **User Registration** | Self-registration with admin role assignment |
-| **Activity Logs** | Full audit trail of all system actions |
-| **Premium Dark UI** | Glassmorphism cards, gradient accents, micro-animations |
+### Core Functionality
+- **Asset Management** — Full CRUD for assets across 4 categories (Electronics, Software, Furniture, Vehicles) with serial numbers, purchase dates, warranty tracking, and status management (available, assigned, under maintenance, retired)
+- **Asset Assignments** — Assign and return assets to employees with complete assignment history
+- **Issue Tracking** — Employees report issues on their assigned assets; managers triage and update status through a workflow (open → in progress → resolved → closed)
+- **Maintenance Records** — Schedule and track maintenance with technician details, dates, descriptions, and cost tracking
+- **User Management** — Admin can create, edit, deactivate users and assign roles (admin, it_manager, employee)
+- **Activity Logs** — Full audit trail of all actions across the system
+
+### Dashboard & Analytics
+- **Role-Based Dashboard** — Admins and IT managers see system-wide statistics with pie charts (asset categories) and bar charts (monthly issues). Employees see a personalized view with only their assigned assets and reported issues
+- **Overview Cards** — Total users, total assets, assigned count, open issues — all linked to their respective pages
+
+### User Experience
+- **Live Global Search** — Real-time search across assets, users, and issues with categorized dropdown results
+- **Role-Based Notifications** — Dynamic notifications pulled from real system data. Admins see system events (new issues, assignments, new users); employees see their own asset assignments and issue status updates
+- **Quick Create** — Top-nav Create button opens forms directly: admins get "New Asset" and "Schedule Maintenance"; employees get "Report Issue"
+- **Centered Profile Modal** — Full profile view with avatar, name, email, role, and department
+- **Self Registration** — New users can register; admins assign roles afterward
+
+### Design
+- **Premium Dark Theme** — Consistent dark SaaS aesthetic across all pages
+- **Glassmorphism Cards** — Frosted glass effect with subtle backdrop blur
+- **Micro-Animations** — Smooth transitions, hover effects, and animated modals
+- **Responsive Tables** — Horizontal scroll with pagination for large datasets
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Layer | Technology |
+### Frontend
+| Technology | Purpose |
 |---|---|
-| **Frontend** | React 18, Vite, React Router v6, Axios, Recharts, Lucide Icons |
-| **Backend** | Python Flask, Flask-SQLAlchemy, Flask-JWT-Extended, Flask-Bcrypt, Flask-CORS |
-| **Database** | MySQL (local) / Railway MySQL (production) |
-| **Deployment** | Vercel (frontend), Render (backend), Railway (database) |
+| React 19 | UI component library |
+| Vite 8 | Build tool and dev server |
+| React Router v7 | Client-side routing with role guards |
+| Axios | HTTP client with JWT interceptors |
+| Recharts | Dashboard charts (Pie, Bar) |
+| Lucide React | Icon library |
+| Vanilla CSS | Custom styling with glassmorphism effects |
+
+### Backend
+| Technology | Purpose |
+|---|---|
+| Flask 3.0 | Python web framework |
+| Flask-SQLAlchemy | ORM for database operations |
+| Flask-JWT-Extended | JWT authentication and authorization |
+| Flask-Bcrypt | Password hashing |
+| Flask-CORS | Cross-origin request handling |
+| PyMySQL | MySQL database driver |
+| Gunicorn | Production WSGI server |
+
+### Infrastructure
+| Service | Purpose |
+|---|---|
+| Vercel | Frontend hosting and CDN |
+| Render | Backend hosting |
+| Railway | MySQL database hosting |
+
+---
+
+## 🏗️ Architecture
+
+```
+┌──────────────────┐     HTTPS      ┌──────────────────┐     TCP      ┌──────────────────┐
+│                  │ ──────────────► │                  │ ──────────► │                  │
+│   React + Vite   │                 │   Flask API      │              │   MySQL (Railway) │
+│   (Vercel)       │ ◄────────────── │   (Render)       │ ◄────────── │                  │
+│                  │     JSON        │                  │   SQLAlchemy │                  │
+└──────────────────┘                 └──────────────────┘              └──────────────────┘
+        │                                    │
+        │                                    │
+   React Router                         JWT Auth
+   Role Guards                      Role-Based Endpoints
+   Axios + Token                    Bcrypt Password Hash
+```
+
+**Authentication Flow:**
+1. User logs in → Backend validates credentials → Returns JWT token
+2. Frontend stores token in `localStorage` → Attached to every API request via Axios interceptor
+3. Backend decodes JWT on each request → Extracts user role → Returns role-appropriate data
+4. 401 responses auto-redirect to login page
+
+---
+
+## 🗄️ Database Schema
+
+```
+┌─────────────┐       ┌──────────────────┐       ┌─────────────┐
+│    Users     │       │ AssetAssignments │       │   Assets    │
+├─────────────┤       ├──────────────────┤       ├─────────────┤
+│ id (PK)     │◄──┐   │ id (PK)          │   ┌──►│ id (PK)     │
+│ name        │   ├───│ employee_id (FK)  │   │   │ asset_name  │
+│ email       │   │   │ asset_id (FK) ────│───┘   │ category    │
+│ password    │   │   │ assigned_date     │       │ brand       │
+│ role        │   │   │ return_date       │       │ model       │
+│ department  │   │   │ status            │       │ serial_num  │
+│ status      │   │   └──────────────────┘       │ status      │
+│ created_at  │   │                               │ created_at  │
+└─────────────┘   │   ┌──────────────────┐       └─────────────┘
+                  │   │     Issues       │              │
+                  │   ├──────────────────┤              │
+                  ├───│ employee_id (FK)  │              │
+                  │   │ asset_id (FK) ────│──────────────┘
+                  │   │ description       │              │
+                  │   │ status            │              │
+                  │   └──────────────────┘              │
+                  │                                      │
+                  │   ┌──────────────────┐              │
+                  │   │  Maintenance     │              │
+                  │   ├──────────────────┤              │
+                  │   │ asset_id (FK) ────│──────────────┘
+                  │   │ technician        │
+                  │   │ date              │
+                  │   │ cost              │
+                  │   └──────────────────┘
+                  │
+                  │   ┌──────────────────┐
+                  │   │  ActivityLogs    │
+                  │   ├──────────────────┤
+                  └───│ user_id (FK)      │
+                      │ action            │
+                      │ module            │
+                      │ timestamp         │
+                      └──────────────────┘
+```
 
 ---
 
 ## 📁 Project Structure
 
 ```
-Asset Management System/
+asset-management-system/
+│
 ├── backend/
-│   ├── app.py                 # Flask app entry point
-│   ├── config.py              # Database & JWT configuration
-│   ├── models.py              # SQLAlchemy models
-│   ├── requirements.txt       # Python dependencies
-│   ├── routes/
-│   │   ├── auth.py            # Login & registration
-│   │   ├── users.py           # User CRUD
-│   │   ├── assets.py          # Asset CRUD
-│   │   ├── assignments.py     # Asset assignments
-│   │   ├── issues.py          # Issue tracking
-│   │   ├── maintenance.py     # Maintenance records
-│   │   ├── dashboard.py       # Role-based dashboard stats
-│   │   ├── search.py          # Global search
-│   │   ├── notifications.py   # Role-based notifications
-│   │   └── activity_logs.py   # Audit logs
-│   └── seed.py                # Database seeder
+│   ├── app.py                    # Flask app, blueprint registration, db.create_all()
+│   ├── config.py                 # DB URI, JWT secrets (reads from env vars)
+│   ├── models.py                 # 6 SQLAlchemy models
+│   ├── seed.py                   # Populates database with demo data
+│   ├── requirements.txt          # Python dependencies
+│   └── routes/
+│       ├── auth.py               # POST /auth/login, POST /auth/register
+│       ├── users.py              # GET/POST/PUT/DELETE /users
+│       ├── assets.py             # GET/POST/PUT/DELETE /assets
+│       ├── assignments.py        # GET/POST /assignments, return asset
+│       ├── issues.py             # GET/POST/PUT /issues
+│       ├── maintenance.py        # GET/POST/PATCH /maintenance
+│       ├── dashboard.py          # GET /dashboard-stats (role-based)
+│       ├── search.py             # GET /search?q= (global search)
+│       ├── notifications.py      # GET /notifications (role-based)
+│       └── activity_logs.py      # GET /activity-logs
 │
 ├── frontend/
 │   ├── src/
-│   │   ├── api/client.js      # Axios instance
-│   │   ├── context/AuthContext.jsx
+│   │   ├── api/client.js         # Axios instance with JWT interceptor
+│   │   ├── context/AuthContext.jsx # Auth state, login/logout, role helpers
 │   │   ├── components/
-│   │   │   ├── Layout.jsx
-│   │   │   ├── Sidebar.jsx
-│   │   │   └── TopNav.jsx
+│   │   │   ├── Layout.jsx        # Sidebar + TopNav wrapper
+│   │   │   ├── Sidebar.jsx       # Navigation with role-based menu items
+│   │   │   └── TopNav.jsx        # Search, notifications, create, profile
 │   │   ├── pages/
-│   │   │   ├── Dashboard.jsx
-│   │   │   ├── Assets.jsx
-│   │   │   ├── Assignments.jsx
-│   │   │   ├── Issues.jsx
-│   │   │   ├── Maintenance.jsx
-│   │   │   ├── Users.jsx
-│   │   │   ├── Settings.jsx
-│   │   │   ├── ActivityLogs.jsx
-│   │   │   ├── MyAssets.jsx
-│   │   │   ├── Login.jsx
-│   │   │   └── Register.jsx
-│   │   ├── App.jsx
-│   │   └── index.css
-│   ├── vercel.json
-│   └── package.json
+│   │   │   ├── Login.jsx         # Login with demo credential buttons
+│   │   │   ├── Register.jsx      # Self-registration form
+│   │   │   ├── Dashboard.jsx     # Role-based dashboard with charts
+│   │   │   ├── Assets.jsx        # Asset CRUD with search and filters
+│   │   │   ├── Assignments.jsx   # Assign/return assets
+│   │   │   ├── Issues.jsx        # Report and manage issues
+│   │   │   ├── Maintenance.jsx   # Maintenance scheduling
+│   │   │   ├── Users.jsx         # User management (admin only)
+│   │   │   ├── MyAssets.jsx      # Employee's assigned assets
+│   │   │   ├── ActivityLogs.jsx  # System audit trail
+│   │   │   └── Settings.jsx      # User settings
+│   │   ├── App.jsx               # Routes with role-based guards
+│   │   └── index.css             # Global styles, dark theme, glassmorphism
+│   ├── vercel.json               # SPA rewrite rules
+│   ├── package.json
+│   └── .npmrc                    # Legacy peer deps for build compatibility
 │
 ├── .gitignore
+├── LICENSE                       # MIT License
 └── README.md
 ```
 
 ---
 
-## 🚀 Local Development Setup
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- **Node.js** 18+ and **npm**
+- **Node.js** 18+
 - **Python** 3.9+
 - **MySQL** 8.0+
 
-### 1. Clone the Repository
+### 1. Clone
 
 ```bash
 git clone https://github.com/Priyanshu-Builds/asset-management-system.git
 cd asset-management-system
 ```
 
-### 2. Backend Setup
+### 2. Backend
 
 ```bash
 cd backend
 pip install -r requirements.txt
 ```
 
-Create the MySQL database:
+Create the database and update credentials in `config.py` if needed:
 
 ```sql
 CREATE DATABASE asset_management;
 ```
 
-Update `config.py` with your MySQL credentials if needed:
-
-```python
-'mysql+pymysql://root:YOUR_PASSWORD@localhost:3306/asset_management'
-```
-
-Start the backend:
+Start the server:
 
 ```bash
 python app.py
+# API runs at http://localhost:5000
 ```
 
-The API will run at `http://localhost:5000`.
-
-### 3. Seed the Database (Optional)
+### 3. Seed Demo Data (Optional)
 
 ```bash
 python seed.py
 ```
 
-### 4. Frontend Setup
+This creates 7 users, 15 assets, 5 assignments, 4 issues, 2 maintenance records, and 8 activity logs.
+
+### 4. Frontend
 
 ```bash
-cd frontend
+cd ../frontend
 npm install
 npm run dev
+# App runs at http://localhost:5173
 ```
-
-The app will run at `http://localhost:5173`.
 
 ---
 
 ## 👥 Demo Credentials
 
-| Role | Email | Password |
+| Role | Email | Password | What they see |
+|---|---|---|---|
+| **Admin** | admin@company.com | admin123 | Full analytics, all modules, user management |
+| **IT Manager** | rahul@company.com | password123 | Full analytics, all modules except user management |
+| **Employee** | priya@company.com | password123 | Personal dashboard, my assets, report issues |
+
+---
+
+## 📡 API Reference
+
+### Authentication
+| Method | Endpoint | Description |
 |---|---|---|
-| Admin | admin@company.com | admin123 |
-| IT Manager | rahul@company.com | password123 |
-| Employee | priya@company.com | password123 |
+| POST | `/auth/login` | Returns JWT token |
+| POST | `/auth/register` | Create new user account |
+
+### Dashboard & Search
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/dashboard-stats` | Role-based statistics and chart data |
+| GET | `/search?q={query}` | Global search across assets, users, issues |
+| GET | `/notifications` | Role-based notifications from system data |
+
+### Assets
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/assets?page=1&per_page=10&search=&status=` | Paginated asset list with filters |
+| GET | `/assets/all` | All assets (no pagination) |
+| POST | `/assets` | Create new asset |
+| PUT | `/assets/:id` | Update asset |
+| DELETE | `/assets/:id` | Delete asset |
+
+### Assignments
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/assignments` | All assignments |
+| POST | `/assignments` | Assign asset to employee |
+| PUT | `/assignments/:id/return` | Return assigned asset |
+| GET | `/assignments/my-assets` | Current user's assigned assets |
+
+### Issues
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/issues` | All issues (filtered by role) |
+| POST | `/issues` | Report new issue |
+| PUT | `/issues/:id` | Update issue status |
+
+### Maintenance
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/maintenance` | All maintenance records |
+| POST | `/maintenance` | Create maintenance record |
+| PATCH | `/maintenance/:id/complete` | Mark as completed |
+
+### Users
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/users` | All users (admin only) |
+| POST | `/users` | Create user |
+| PUT | `/users/:id` | Update user details/role |
+| DELETE | `/users/:id` | Delete user |
+
+### Activity Logs
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/activity-logs` | Paginated audit trail |
+
+> All endpoints except `/auth/login` and `/auth/register` require a valid JWT token in the `Authorization: Bearer <token>` header.
 
 ---
 
-## 🌐 Deployment Guide
+## 🔒 Role-Based Access Matrix
 
-### Database → Railway MySQL
-
-1. Go to [railway.app](https://railway.app) and create a new project
-2. Click **"New"** → **"Database"** → **"MySQL"**
-3. Once provisioned, go to **Settings** → **Variables** and copy:
-   - `MYSQL_URL` (format: `mysql://user:pass@host:port/dbname`)
-4. Convert to PyMySQL format for Flask:
-   - Change `mysql://` to `mysql+pymysql://`
-   - This becomes your `DATABASE_URL`
-
-### Backend → Render
-
-1. Go to [render.com](https://render.com) and create a **New Web Service**
-2. Connect your GitHub repo
-3. Configure:
-   - **Root Directory**: `backend`
-   - **Runtime**: Python 3
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `gunicorn app:app --bind 0.0.0.0:$PORT`
-4. Add **Environment Variables**:
-   - `DATABASE_URL` = your Railway MySQL URL (with `mysql+pymysql://`)
-   - `SECRET_KEY` = a random secret string
-   - `JWT_SECRET_KEY` = another random secret string
-   - `FLASK_ENV` = production
-5. Deploy. Note the Render URL (e.g., `https://your-app.onrender.com`)
-
-### Frontend → Vercel
-
-1. Go to [vercel.com](https://vercel.com) and import your GitHub repo
-2. Configure:
-   - **Root Directory**: `frontend`
-   - **Framework Preset**: Vite
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
-3. Add **Environment Variable**:
-   - `VITE_API_URL` = your Render backend URL (e.g., `https://your-app.onrender.com`)
-4. Deploy
-
----
-
-## 🔒 Role-Based Access
-
-| Feature | Admin | IT Manager | Employee |
-|---|---|---|---|
-| Dashboard (Full Stats) | ✅ | ✅ | ❌ |
-| Dashboard (Personal) | ❌ | ❌ | ✅ |
-| Manage Assets | ✅ | ✅ | ❌ |
-| View My Assets | ❌ | ❌ | ✅ |
-| Manage Assignments | ✅ | ✅ | ❌ |
-| Report Issues | ✅ | ✅ | ✅ |
-| Update Issue Status | ✅ | ✅ | ❌ |
-| Maintenance Records | ✅ | ✅ | ❌ |
-| Manage Users | ✅ | ❌ | ❌ |
-| Activity Logs | ✅ | ✅ | ❌ |
+| Module | Admin | IT Manager | Employee |
+|---|:---:|:---:|:---:|
+| Dashboard (System Analytics) | ✅ | ✅ | — |
+| Dashboard (Personal View) | — | — | ✅ |
+| Asset Management (CRUD) | ✅ | ✅ | — |
+| My Assets (Read Only) | — | — | ✅ |
+| Asset Assignments | ✅ | ✅ | — |
+| Report Issues | — | — | ✅ |
+| Manage Issues (Status) | ✅ | ✅ | — |
+| Maintenance Records | ✅ | ✅ | — |
+| User Management | ✅ | — | — |
+| Activity Logs | ✅ | ✅ | — |
 | Settings | ✅ | ✅ | ✅ |
+| Global Search | ✅ | ✅ | ✅ |
+| Notifications | ✅ | ✅ | ✅ |
 
 ---
 
-## 📡 API Endpoints
+## 🌐 Deployment
 
-| Method | Endpoint | Description | Auth |
-|---|---|---|---|
-| POST | `/auth/login` | User login | ❌ |
-| POST | `/auth/register` | User registration | ❌ |
-| GET | `/dashboard-stats` | Role-based dashboard data | ✅ |
-| GET | `/search?q=` | Global search | ✅ |
-| GET | `/notifications` | Role-based notifications | ✅ |
-| GET/POST | `/assets` | List/Create assets | ✅ |
-| PUT/DELETE | `/assets/:id` | Update/Delete asset | ✅ |
-| GET/POST | `/assignments` | List/Create assignments | ✅ |
-| GET/POST | `/issues` | List/Create issues | ✅ |
-| PUT | `/issues/:id` | Update issue status | ✅ |
-| GET/POST | `/maintenance` | List/Create maintenance | ✅ |
-| GET/POST/PUT/DELETE | `/users` | User management | ✅ |
-| GET | `/activity-logs` | Audit logs | ✅ |
+The app is deployed across three services:
+
+### Railway (MySQL Database)
+1. Create a project at [railway.app](https://railway.app) → Add MySQL
+2. Enable **Public Networking** in the MySQL service settings
+3. Copy the public `MYSQL_URL` and change `mysql://` to `mysql+pymysql://`
+
+### Render (Flask Backend)
+1. Create a Web Service at [render.com](https://render.com) → Connect GitHub
+2. Set **Root Directory** to `backend`, **Runtime** to Python 3
+3. **Build Command:** `pip install -r requirements.txt`
+4. **Start Command:** `gunicorn app:app --bind 0.0.0.0:$PORT`
+5. Environment variables:
+   - `DATABASE_URL` — Railway MySQL public URL (with `mysql+pymysql://`)
+   - `SECRET_KEY` — Random secret string
+   - `JWT_SECRET_KEY` — Random secret string
+
+### Vercel (React Frontend)
+1. Import repo at [vercel.com](https://vercel.com)
+2. Set **Root Directory** to `frontend`, **Framework** to Vite
+3. Environment variable:
+   - `VITE_API_URL` — Your Render backend URL
+
+---
+
+## 📸 Screenshots
+
+> Login with demo credentials at the [live demo](https://asset-management-system-wine.vercel.app/) to explore the full interface.
 
 ---
 
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
+
